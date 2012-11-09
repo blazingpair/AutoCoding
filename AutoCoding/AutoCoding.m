@@ -182,7 +182,9 @@
     for (NSString *key in [self codableKeys])
     {
         id object = [self valueForKey:key];
-        [aCoder encodeObject:object forKey:key];
+        if (object) {
+            [aCoder encodeObject:object forKey:key];
+        }
     }
 }
 
